@@ -11,22 +11,22 @@ public class SlyServer {
 	public static void main(String[] args){
 		server = new Server();
 		RegisterClasses.register(server.getKryo());
-	    server.start();
-	    
-	    try{
-	    	server.bind(54555, 54777);
-	    }
-	    catch(Exception e){
-	    	e.printStackTrace();
-	    }
-	    server.addListener(new Listener() {
-	        public void received (Connection connection, Object object) {
-	           if (object instanceof SomeRequest) {
-	        	   processServerRequest(connection, (SomeRequest)object);
-	           }
-	        }
-	     });
-	    
+		server.start();
+		
+		try{
+			server.bind(54555, 54777);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		server.addListener(new Listener() {
+			public void received (Connection connection, Object object) {
+			   if (object instanceof SomeRequest) {
+				   processServerRequest(connection, (SomeRequest)object);
+			   }
+			}
+		 });
+		
 	}
 	
 	/**
@@ -35,15 +35,15 @@ public class SlyServer {
 	 * @param request
 	 */
 	public static void processServerRequest(Connection senderConnection, SomeRequest request){
-        System.out.println(request.text);
-        
-        SomeResponse response = new SomeResponse();
-        response.text = request.text;
-        for(Connection connection : server.getConnections()){
-        	//Only send to connections that aren't the sender
-        	if (!connection.equals(senderConnection)){
-        		connection.sendTCP(response);
-        	}
-        }
+		System.out.println(request.text);
+		
+		SomeResponse response = new SomeResponse();
+		response.text = request.text;
+		for(Connection connection : server.getConnections()){
+			//Only send to connections that aren't the sender
+			if (!connection.equals(senderConnection)){
+				connection.sendTCP(response);
+			}
+		}
 	}
 }
