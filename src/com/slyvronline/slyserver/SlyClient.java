@@ -9,6 +9,12 @@ import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 
+/**
+ * This class implements the KryoNet java networking library for connecting to a server.  Connect to an instance of SlyServer and start
+ * chatting through the command line to others connected to the server.  Connect to locally running server through 127.0.0.1 or let
+ * the program automatically find it.
+ * @author Slyvr
+ */
 public class SlyClient {
 
 	private static String name;
@@ -16,7 +22,7 @@ public class SlyClient {
 	private static Client client;
 	
 	public static void main(String[] args) {
-		name = "Default";
+		name = "";
 		client = new Client();
 		RegisterClasses.register(client.getKryo());
 		client.start();
@@ -42,6 +48,7 @@ public class SlyClient {
 		
 		//Request 'login' details
 		name = getInput("What is your name?");
+		if (name.length()==0) name = "Guest";
 		
 		//Connect to server
 		try{
@@ -53,6 +60,8 @@ public class SlyClient {
 		}
 		catch(Exception e){
 			e.printStackTrace();
+			System.out.println("Could not connect to server.  Exitting...");
+			System.exit(0);
 		}
 		
 		//Listen to server
@@ -81,7 +90,7 @@ public class SlyClient {
 	}
 
 	/**
-	 * This class prints a message to the console and retrieves a user's input
+	 * This method prints a message to the console and retrieves a user's input
 	 * @param message
 	 * @return
 	 */

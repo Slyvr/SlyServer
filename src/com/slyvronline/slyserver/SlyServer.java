@@ -4,6 +4,13 @@ import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Server;
 
+/**
+ * This class implements the KryoNet java networking library for creating a simple chat server.  Users using SlyClient
+ * may connect to an instance of this server running.  If you want to use the server outside of simple LAN usage, make
+ * sure to include port forwarding on your router for port 54555 and give users your external IP address which can
+ * be found if you do a google search for 'what is my ip'
+ * @author Slyvr
+ */
 public class SlyServer {
 
 	private static Server server;
