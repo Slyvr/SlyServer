@@ -16,7 +16,6 @@ public class SlyServer {
 	private static Server server;
 	
 	public static void main(String[] args){
-		//Log.set(Log.LEVEL_NONE);
 		server = new Server();
 		RegisterClasses.register(server.getKryo());
 		server.start();

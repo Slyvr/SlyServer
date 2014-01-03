@@ -8,7 +8,6 @@ import java.net.InetAddress;
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
-import com.esotericsoftware.minlog.Log;
 
 /**
  * This class implements the KryoNet java networking library for connecting to a server.  Connect to an instance of SlyServer and start
@@ -24,7 +23,6 @@ public class SlyClient {
 	
 	public static void main(String[] args) {
 		name = "";
-		Log.set(Log.LEVEL_NONE);
 		client = new Client();
 		RegisterClasses.register(client.getKryo());
 		client.start();
