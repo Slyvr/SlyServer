@@ -17,7 +17,7 @@ connect.  Now, you should be able to communicate between the two computers throu
 Internet Setup
 --------------
 
-To setup the server to work through the internet (I have not successfully tested this yet), you'll need to add port forwarding on your
-router for port 54555 (TCP).  To lookup how to do this, do a google search for 'port forwarding.'  There are many resources on this topic.
-Any computers that want to connect to your server through the internet will need your external IP which can be found by
-googling 'what is my ip'.  You cannot use this external ip to connect to your server locally
+To setup the server to work through the internet, you'll need to add port forwarding on your router for port 54555 (TCP) and 54777 (UDP). 
+To lookup how to do this, do a google search for 'port forwarding.'  There are many resources on this topic and each router can be a bit different. 
+Any computers that want to connect to your server through the internet will need your external IP which can be found by googling 'what is my ip'. 
+You cannot use this external ip to connect to your server locally.  Test connection using another java capable pc.
