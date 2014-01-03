@@ -3,7 +3,6 @@ package com.slyvronline.slyserver;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Server;
-import com.esotericsoftware.minlog.Log;
 
 /**
  * This class implements the KryoNet java networking library for creating a simple chat server.  Users using SlyClient
@@ -17,7 +16,7 @@ public class SlyServer {
 	private static Server server;
 	
 	public static void main(String[] args){
-		Log.set(Log.LEVEL_NONE);
+		//Log.set(Log.LEVEL_NONE);
 		server = new Server();
 		RegisterClasses.register(server.getKryo());
 		server.start();
